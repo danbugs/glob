@@ -12,7 +12,7 @@ nav form{
 
 }
 
-nav .right{
+.right{
     float:right;
 }
 /* </navbar> */
@@ -37,3 +37,26 @@ footer .heart{
     color: red;
 }
 /* </footer> */
+
+/* <misc> */
+button a{
+    color: white;
+}
+button a:hover{
+    color: white;
+    font-weight: bold;
+}
+div form, div form *{
+    width: 100%;
+}
+
+.active_on_hover{
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+}
+
+.active_on_hover:hover{
+    opacity: 1;
+}
+/* </misc> */
