@@ -1,0 +1,62 @@
+/* <navbar> */
+nav{
+    font-size: 17px;
+    padding: .5em;
+    background-color: #f6f6f6;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+nav form{
+    display: inline-block;
+
+}
+
+.right{
+    float:right;
+}
+/* </navbar> */
+
+/* <main> */
+main{
+    margin-top:100px;
+}
+/* </main> */
+
+/* <footer> */
+footer{
+    background-color: #f6f6f6;
+    text-align: center;
+    display: inline-block;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1em;
+}
+footer .heart{
+    color: red;
+}
+/* </footer> */
+
+/* <misc> */
+button a{
+    color: white;
+}
+button a:hover{
+    color: white;
+    font-weight: bold;
+}
+div form, div form *{
+    width: 100%;
+}
+
+.active_on_hover{
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+}
+
+.active_on_hover:hover{
+    opacity: 1;
+}
+/* </misc> */
