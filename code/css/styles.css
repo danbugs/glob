@@ -33,21 +33,23 @@ footer{
     width: 100%;
     padding: 1em;
 }
-footer .heart{
+.heart{
     color: red;
 }
 /* </footer> */
 
 /* <misc> */
+br{
+    display: block;
+    content: "";
+    height: 1em;
+}
 button a{
     color: white;
 }
 button a:hover{
     color: white;
     font-weight: bold;
-}
-div form, div form *{
-    width: 100%;
 }
 
 .active_on_hover{
