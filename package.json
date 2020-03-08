@@ -1,0 +1,26 @@
+{
+  "name": "my_blog_post",
+  "version": "1.0.0",
+  "description": "A website to host your blog!",
+  "main": "index.js",
+  "scripts": {
+    "client": "npx serve",
+    "server": "node code/server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danbugs/my_blog_post.git"
+  },
+  "author": "dan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danbugs/my_blog_post/issues"
+  },
+  "homepage": "https://github.com/danbugs/my_blog_post#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg": "^7.18.2"
+  },
+  "devDependencies": {}
+}
