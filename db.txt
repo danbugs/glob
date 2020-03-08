@@ -1,0 +1,28 @@
+CREATE TABLE blogUser(
+	username VARCHAR(50) NOT NULL,
+	password VARCHAR(50) NOT NULL, 
+	admin boolean, 	
+	email VARCHAR(100) NOT NULL,
+	bio VARCHAR(200),
+	PRIMARY KEY (username)
+);
+
+INSERT INTO blogUser VALUES ('admin', 'adminpass', true, 'admin@admin.com', 'Admin');
+
+CREATE TABLE blogPost(
+	postID SERIAL NOT NULL,
+	pcontent VARCHAR (1000) NOT NULL,
+	title VARCHAR(100) NOT NULL,
+	username VARCHAR(50) NOT NULL REFERENCES blogUser(username) ON UPDATE CASCADE ON DELETE NO ACTION,
+	views INT NOT NULL, 
+	likes INT NULL,
+	PRIMARY KEY (postID)
+);
+
+CREATE TABLE blogComment(
+	commentID SERIAL NOT NULL, 
+	content VARCHAR (300) NOT NULL,
+	postID SERIAL NOT NULL REFERENCES blogPost(postID) ON UPDATE CASCADE ON DELETE NO ACTION,
+	username VARCHAR(50) NOT NULL REFERENCES blogUser(username) ON UPDATE CASCADE ON DELETE NO ACTION,
+	PRIMARY KEY(commentID)	
+);
