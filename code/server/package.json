@@ -4,8 +4,7 @@
   "description": "A website to host your blog!",
   "main": "index.js",
   "scripts": {
-    "client": "npx serve",
-    "server": "node code/server/index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",

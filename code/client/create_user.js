@@ -1,6 +1,6 @@
-console.log("Hello, Client!");
 let form = document.querySelector('form#create_user');
-let server = 'http://127.0.0.1:8000/create_user';
+let server = 'https://404-server.now.sh/create_user';
+console.log(`Hello, ${server}`);
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
