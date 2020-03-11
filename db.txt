@@ -1,28 +1,36 @@
 CREATE TABLE blogUser(
-	username VARCHAR(50) NOT NULL,
-	password VARCHAR(50) NOT NULL, 
-	admin boolean, 	
-	email VARCHAR(100) NOT NULL,
-	bio VARCHAR(200),
-	PRIMARY KEY (username)
+username VARCHAR(50) NOT NULL,
+password VARCHAR(50) NOT NULL, 
+admin boolean,
+email VARCHAR(100) NOT NULL,
+bio VARCHAR(200),
+PRIMARY KEY (username)
 );
 
 INSERT INTO blogUser VALUES ('admin', 'adminpass', true, 'admin@admin.com', 'Admin');
+INSERT INTO blogUser VALUES ('dan', 'danpass', false, 'dan@hotmail.com', 'Hi Im Dan');
+INSERT INTO blogUser VALUES ('sheyla', 'sheylapass', false, 'sheyla@hotmail.com', 'Hi Im Sheyla');
 
 CREATE TABLE blogPost(
-	postID SERIAL NOT NULL,
-	pcontent VARCHAR (1000) NOT NULL,
-	title VARCHAR(100) NOT NULL,
-	username VARCHAR(50) NOT NULL REFERENCES blogUser(username) ON UPDATE CASCADE ON DELETE NO ACTION,
-	views INT NOT NULL, 
-	likes INT NULL,
-	PRIMARY KEY (postID)
+postID SERIAL NOT NULL,
+pcontent VARCHAR (1000) NOT NULL,
+title VARCHAR(100) NOT NULL,
+username VARCHAR(50) NOT NULL REFERENCES blogUser(username) ON UPDATE CASCADE ON DELETE NO ACTION,
+views INT NOT NULL, 
+likes INT NULL,
+PRIMARY KEY (postID)
 );
 
 CREATE TABLE blogComment(
-	commentID SERIAL NOT NULL, 
-	content VARCHAR (300) NOT NULL,
-	postID SERIAL NOT NULL REFERENCES blogPost(postID) ON UPDATE CASCADE ON DELETE NO ACTION,
-	username VARCHAR(50) NOT NULL REFERENCES blogUser(username) ON UPDATE CASCADE ON DELETE NO ACTION,
-	PRIMARY KEY(commentID)	
+commentID SERIAL NOT NULL, 
+content VARCHAR (300) NOT NULL,
+postID SERIAL NOT NULL REFERENCES blogPost(postID) ON UPDATE CASCADE ON DELETE NO ACTION,
+username VARCHAR(50) NOT NULL REFERENCES blogUser(username) ON UPDATE CASCADE ON DELETE NO ACTION,
+PRIMARY KEY(commentID)
 );
+
+INSERT INTO blogPost(pcontent, title, username, views, likes)  VALUES ('Perfect way to start my last term at UBC! My team and I developed a website that shows the requirements to take any Computer Science course in an easier way for students, all this in just 24hrs.', 'BCHacks 2020', 'dan', 1, 2);
+
+INSERT INTO blogPost(pcontent, title, username, views, likes)  VALUES ('My team and I participated in the Okanagan and Western Engineering Competition. We had the amazing opportunity to travel to Winnipeg in January for the second one (which was super cold). For both competitions we had to develop a sort of game, and for both cases we used Unity.', 'Western Engineering Competition 2019', 'sheyla', 10, 20);
+
+INSERT INTO blogPost(pcontent, title, username, views, likes)  VALUES ('I was a research assistant for around two years in this lab! I started with pretty simple tasks but at the end I ended up working on my own research project.', 'Research Assistant', 'dan', 15, 5);
