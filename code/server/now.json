@@ -6,6 +6,9 @@
         "use": "@now/node"
         }
     ],
+    "env": {
+      "CON_STRING": "@con_string"
+    },
     "routes": [
         {"src": "/.*", "dest": "index.js"}
     ]

@@ -1,5 +1,6 @@
 const pg = require('pg');
-var conString = "postgres://pefuvhmk:p7GksyoeWvKxCHtTgQUOrRpMQ4wcs9y-@drona.db.elephantsql.com:5432/pefuvhmk";
+//var conString = process.env.CON_STRING;
+var conString = process.env.CON_STRING;
 var client = new pg.Client(conString);
 client.connect(function(err) {
     if(err) {

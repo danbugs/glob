@@ -4,7 +4,7 @@ const pg = require('pg');
 const app = express();
 app.use(cors());
 app.use(express.json());
-var conString = "postgres://pefuvhmk:p7GksyoeWvKxCHtTgQUOrRpMQ4wcs9y-@drona.db.elephantsql.com:5432/pefuvhmk"
+var conString = process.env.CON_STRING;
 
 app.get('/', (req, res) => {
     res.json({message: req.url});
@@ -15,8 +15,8 @@ app.post('/create_user', (req, res) => {
     create_user(req.body);
 });
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log("Hello, Server!");
+app.listen(3000, () => {
+    console.log(process.env.PORT);
 });
 
 function create_user(user){
