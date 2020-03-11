@@ -18,8 +18,7 @@ app.post('/create_user', (req, res) => {
 });
 app.post('/get_trending_posts', (req, res) => {
     console.log(req.body);
-    console.log(get_trending_posts());
-    // res.send(get_trending_posts());
+    res.send(get_trending_posts());
 });
 app.listen(3000, () => {
     console.log(process.env.PORT);
