@@ -23,6 +23,17 @@ main{
 }
 /* </main> */
 
+/* <trending_posts> */
+#trending_posts div{
+    border: 1px dashed grey;
+    margin: .3em;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+/* </trending_posts> */
+
 /* <footer> */
 footer{
     background-color: #f6f6f6;

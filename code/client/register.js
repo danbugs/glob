@@ -1,5 +1,5 @@
 let form = document.querySelector('form#register');
-let server = window.location.hostname === 'localhost' ? 'http://localhost:3000/' : 'https://glob-server.now.sh/register';
+let server = 'https://glob-server.now.sh/register';
 console.log(`Hello, ${server}`);
 
 form.addEventListener('submit', (e) => {
