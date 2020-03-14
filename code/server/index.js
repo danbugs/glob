@@ -5,6 +5,18 @@ const pg = require('pg');
 let conString = process.env.CON_STRING;
 let client = new pg.Client(conString);
 
+client.connect(function(err){
+  if(err){
+      console.log('could not connect to postgres', err);
+      res.status(500);
+      res.send({
+          message: err.message
+      });
+  }else{
+    console.log('connection OK');
+  }
+});
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -23,23 +35,26 @@ app.post('/register', (req, res) => {
                 return console.log('error running query', err);
             }
             console.log(result.rows);
-            client.end();
+            client.end(err => {
+              console.log('client has disconnected')
+              if (err) {
+                console.log('error during disconnection', err.stack)
+              }
+            });
         });
     });
 });
 
 app.get('/get_trending_posts', (req, res) => {
-    client.connect(function(err){
+    client.query(`SELECT * FROM blogPost;`, function(err, result) {
       if(err){
-        return console.log('could not connect to postgres', err);
+          console.log('error running query', err);
+          res.status(500);
+          res.send({
+              message: err.message
+          });
       }
-      client.query(`SELECT * FROM blogPost;`, function(err, result) {
-        if(err){
-          return console.log('error running query', err);
-        }
-        res.send(result.rows);
-        client.end();
-      })
+      res.send(result.rows);
     })
 });
 
