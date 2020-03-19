@@ -36,10 +36,10 @@ a{
 
 /* <footer> */
 footer{
+    margin-top: 1em;
     background-color: #f6f6f6;
     text-align: center;
-    display: inline-block;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
     padding: 1em;
@@ -61,15 +61,5 @@ button a{
 button a:hover{
     color: white;
     font-weight: bold;
-}
-
-.active_on_hover{
-    opacity: 0;
-    width: inherit;
-    height: inherit;
-}
-
-.active_on_hover:hover{
-    opacity: 1;
 }
 /* </misc> */

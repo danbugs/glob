@@ -12,42 +12,30 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">    
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <script src='navbar.js'></script>
+        <script src='Navbar.js'></script>
     </header>
-    <main>
+    <main id="my_blog">
         <div class="container">
             <div class="row">
                 <h1 class="col-2">My Blog</h1>
-                <button class="offset-7 col-2 btn btn-danger"><a href="./make_post.html">Make Post!</a></button>
+                <a class="offset-7 col-2 btn btn-danger" href="./make_post.html">Make Post!</a>
             </div>
-            <div class="row">
-                <div style="background-color: chocolate; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: violet; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: gold; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: chocolate; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: violet; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: gold; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: chocolate; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: violet; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: gold; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: chocolate; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: violet; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: gold; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: chocolate; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: violet; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: gold; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: chocolate; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: violet; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-                <div style="background-color: gold; border:1px solid black; width:100px; height:100px; margin: 1em"><div class="active_on_hover">&heartsuit; 0</div></div>
-            </div>
+            <table class="table" id="posts">
+                <legend>Posts</legend>
+                <tr>
+                    <th>Post name</th>
+                    <th>Likes</th>
+                    <th>Action</th>                            
+                </tr>
+            </table>
         </div>
     </main>
     <footer>
         <p>Developed with <span class="heart">&heartsuit;</span> by Dan & Sheyla</p>
     </footer>
+    <script src="my_blog.js"></script>
 </body>
 </html>

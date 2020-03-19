@@ -1,6 +1,5 @@
 let form = document.querySelector('form#register');
 let server = 'https://glob-server.now.sh/register';
-console.log(`Hello, ${server}`);
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -17,5 +16,5 @@ form.addEventListener('submit', (e) => {
             'content-type': 'application/json'
         }
     })
-    console.log("NOTE/ Created user!");
+    .then(_ => location.reload());
 })

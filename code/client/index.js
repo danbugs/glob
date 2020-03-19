@@ -1,4 +1,4 @@
-let server = 'https://glob-server.now.sh/get_trending_posts';
+let server = 'https://glob-server.now.sh/index';
 fetch(server, {
     method: 'GET',
     headers : { 
@@ -13,9 +13,9 @@ fetch(server, {
         for(let i = 0; i < result.length; i++){
             let post = $(`
             <div>
-            <h2><a href="./make_post.html?postid="${result[i].postid}">${result[i].title}</a></h2>
+            <h2><a id=${result[i].postid} href="./post.html" onClick='view_post(this)'>${result[i].title}</a></h2>
             <h3 class="subtitle">by ${result[i].username}</h3>
-            <p>Likes: ${result[i].likes} | Views: ${result[i].views}</p>
+            <p><i class="fas fa-heart"></i> ${result[i].likes} | <i class="fas fa-heart-broken"></i> ${result[i].dislikes}</p>
             </div>
             `)
             $('#trending_posts').append(post);
@@ -25,3 +25,8 @@ fetch(server, {
     console.log(result);
 })
 .catch((e) => console.log(e));
+
+function view_post(e){
+    sessionStorage.removeItem("postid")
+    sessionStorage.setItem("postid", $(e).attr('id'));
+}

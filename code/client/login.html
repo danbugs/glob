@@ -12,17 +12,16 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">    
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <script src='navbar.js'></script>
+        <script src='Navbar.js'></script>
     </header>
     <main>
         <div class="container">
             <div class="row">
                 <div class="offset-4 col-4">
-                    <form method="POST" action="http://www.randyconnolly.com/tests/process.php">
+                    <form id="login">
                         <fieldset>
                             <legend>Login</legend>
                                 <p>username:</p>
@@ -35,6 +34,7 @@
                                 <a href="register.html">Not registered? Register here!</a>
                         </fieldset>
                     </form>
+                    <p id="login_message" style="color:red"></p>
                 </div>
             </div>
         </div>
@@ -42,5 +42,6 @@
     <footer>
         <p>Developed with <span class="heart">&heartsuit;</span> by Dan & Sheyla</p>
     </footer>
+    <script src="login.js"></script>
 </body>
 </html>
