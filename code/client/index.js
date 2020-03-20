@@ -13,9 +13,9 @@ fetch(server, {
         for(let i = 0; i < result.length; i++){
             let post = $(`
             <div>
-            <h2><a id=${result[i].postid} href="./post.html" onClick='view_post(this)'>${result[i].title}</a></h2>
-            <h3 class="subtitle">by ${result[i].username}</h3>
-            <p><i class="fas fa-heart"></i> ${result[i].likes} | <i class="fas fa-heart-broken"></i> ${result[i].dislikes}</p>
+            <h2><a href="./post.html?postid=${result[i].postid}"'>${result[i].title}</a></h2>
+            <h3><a href="./blog.html?username=${result[i].username}"'>by ${result[i].username}</a></h3>
+            <h4><i class="fas fa-eye"></i> ${result[i].views}</h4>
             </div>
             `)
             $('#trending_posts').append(post);
@@ -25,8 +25,3 @@ fetch(server, {
     console.log(result);
 })
 .catch((e) => console.log(e));
-
-function view_post(e){
-    sessionStorage.removeItem("postid")
-    sessionStorage.setItem("postid", $(e).attr('id'));
-}

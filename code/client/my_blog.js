@@ -18,9 +18,7 @@ if(sessionStorage.getItem('username')){
                 let post = $(`
                 <tr>
                     <td>${result[i].title}</td>
-                    <td>
-                        <span class="heart">&heartsuit; ${result[i].likes}</span>
-                    </td>
+                    <td>${result[i].views}</td>
                     <td>
                         <button id='${result[i].postid}' class="btn btn-danger" onClick='deletePost(this)'>Delete</button>
                     </td>

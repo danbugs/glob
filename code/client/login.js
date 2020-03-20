@@ -21,6 +21,6 @@ form.addEventListener('submit', (e) => {
         location.reload();
     })
     .catch(e => {
-        $('#login_message').append(`~ couldn't login`);
+        $('#login_message').html(`~ couldn't login`);
     })
 })

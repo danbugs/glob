@@ -16,5 +16,9 @@ form.addEventListener('submit', (e) => {
             'content-type': 'application/json'
         }
     })
-    .then(_ => location.reload());
+    .then(_ => {
+        let form_data = new FormData(form);
+        sessionStorage.setItem("username", form_data.get("username"));
+        location.reload();
+    });
 })

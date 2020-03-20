@@ -41,12 +41,7 @@ if(sessionStorage.getItem("username") === 'admin'){
                 <tr>
                     <td>${result[i].title}</td>
                     <td>${result[i].username}</td>
-                    <td>
-                        <i class="fas fa-heart"></i> ${result[i].likes}
-                    </td>
-                    <td>
-                        <i class="fas fa-heart-broken"></i> ${result[i].dislikes}
-                    </td>
+                    <td>${result[i].views}</td>
                     <td>
                         <button id='${result[i].postid}' class="btn btn-danger" onClick='deletePost(this)'>Delete</button>
                     </td>

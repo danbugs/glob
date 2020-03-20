@@ -14,8 +14,7 @@ postID SERIAL NOT NULL,
 pcontent VARCHAR (1000) NOT NULL,
 title VARCHAR(100) NOT NULL,
 username VARCHAR(50) NOT NULL REFERENCES blogUser(username) ON UPDATE CASCADE ON DELETE NO ACTION, 
-likes INT NULL,
-dislikes INT NULL,
+views INT NULL,
 PRIMARY KEY (postID)
 );
 
@@ -27,4 +26,4 @@ username VARCHAR(50) NOT NULL REFERENCES blogUser(username) ON UPDATE CASCADE ON
 PRIMARY KEY(commentID)
 );
 
-INSERT INTO blogPost(pcontent, title, username, likes, dislikes)  VALUES ('Perfect way to start my last term at UBC! My team and I developed a website that shows the requirements to take any Computer Science course in an easier way for students, all this in just 24hrs.', 'BCHacks 2020', 'dan', 1, 2);
+INSERT INTO blogPost(pcontent, title, username, views)  VALUES ('Perfect way to start my last term at UBC! My team and I developed a website that shows the requirements to take any Computer Science course in an easier way for students, all this in just 24hrs.', 'BCHacks 2020', 'dan', 0);

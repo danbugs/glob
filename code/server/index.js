@@ -65,7 +65,7 @@ app.get('/admin/get_posts', (req, res) => {
 });
 
 app.post('/register', (req, res) => {
-  client.query(`INSERT INTO blogUser VALUES ('${req.body.username}', '${req.body.pwd}', ${false}, '${req.body.email}', '');`, function(err, result) {
+  client.query(`INSERT INTO blogUser VALUES ('${req.body.username}', '${req.body.pwd}', '${req.body.email}');`, function(err, result) {
     if(err) {
       console.log('error running query', err);
       res.status(500);
@@ -97,6 +97,20 @@ app.post('/admin/delete_user', (req, res) => {
 });
 
 app.post('/my_blog', (req, res) => {
+  client.query(`SELECT * FROM blogPost WHERE username = '${req.body.username}';`, function(err, result) {
+    if(err){cd
+      console.log('error running query', err);
+      res.status(500);
+      res.send({
+          message: err.message
+      });
+    }
+    res.status(200);
+    res.send(result.rows);
+  })
+});
+
+app.post('/blog', (req, res) => {
   client.query(`SELECT * FROM blogPost WHERE username = '${req.body.username}';`, function(err, result) {
     if(err){cd
       console.log('error running query', err);
@@ -154,6 +168,22 @@ app.post('/post', (req, res) => {
   });
 });
 
+app.post('/post/views', (req, res) => {
+  client.query(`UPDATE blogPost SET views = views + 1 WHERE postid = ${req.body.postid};`, function(err, result) {
+    if(err){
+      console.log('error running query', err);
+      res.status(500);
+      res.send({
+          message: err.message
+      });
+    }
+    res.status(200);
+    res.send({
+      message: 'views++'
+    });
+  });
+});
+
 app.post('/admin/query', (req, res) => {
   client.query(req.body.query, function(err, result) {
     if(err){
@@ -167,7 +197,7 @@ app.post('/admin/query', (req, res) => {
 });
 
 app.post('/make_post', (req, res) => {
-  client.query(`INSERT INTO blogPost(pcontent, title, username, likes, dislikes)  VALUES ('${req.body.pcontent}', '${req.body.title}', '${req.body.username}', 0, 0);`, function(err, result) {
+  client.query(`INSERT INTO blogPost(pcontent, title, username, views)  VALUES ('${req.body.pcontent}', '${req.body.title}', '${req.body.username}', 0);`, function(err, result) {
     if(err){
       console.log('error running query', err);
       res.status(500);
