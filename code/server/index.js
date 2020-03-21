@@ -65,7 +65,33 @@ app.get('/admin/get_posts', (req, res) => {
 });
 
 app.post('/register', (req, res) => {
-  client.query(`INSERT INTO blogUser VALUES ('${req.body.username}', '${req.body.pwd}', '${req.body.email}');`, function(err, result) {
+  const query = {
+    name: 'register',
+    text: 'INSERT INTO blogUser VALUES ($1, $2, $3);',
+    values: [req.body.username, req.body.pwd, req.body.email]
+  }
+  client.query(query, function(err, result) {
+    if(err){
+      console.log('error running query', err);
+      res.status(500);
+      res.send({
+          message: err.message
+      });
+    }
+    res.status(200);
+    res.send({
+      message: "registered"
+    });
+  })
+});
+
+app.post('/search', (req, res) => {
+  const query = {
+    name: 'search',
+    text: 'SELECT * FROM blogUser WHERE username LIKE $1;',
+    values: [`%${req.body.search}%`]
+  }
+  client.query(query, function(err, result) {
     if(err) {
       console.log('error running query', err);
       res.status(500);
@@ -74,9 +100,7 @@ app.post('/register', (req, res) => {
       });      
     }
     res.status(200);
-    res.send({
-      message: "registered"
-    });
+    res.send(result.rows);
   });
 });
 
@@ -141,7 +165,12 @@ app.post('/delete_post', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-  client.query(`SELECT * FROM blogUser WHERE username='${req.body.username}' AND password='${req.body.pwd}';`, function(err, result) {
+  const query = {
+    name: 'login',
+    text: 'SELECT * FROM blogUser WHERE username=$1 AND password=$2;',
+    values: [req.body.username, req.body.pwd]
+  }
+  client.query(query, function(err, result) {
     if(err){
       console.log('error running query', err);
       res.status(500);
@@ -197,7 +226,12 @@ app.post('/admin/query', (req, res) => {
 });
 
 app.post('/make_post', (req, res) => {
-  client.query(`INSERT INTO blogPost(pcontent, title, username, views)  VALUES ('${req.body.pcontent}', '${req.body.title}', '${req.body.username}', 0);`, function(err, result) {
+  const query = {
+    name: 'make_post',
+    text: 'INSERT INTO blogPost(pcontent, title, username, views)  VALUES ($1, $2, $3, 0);',
+    values: [req.body.pcontent, req.body.title, req.body.username]
+  }
+  client.query(query, function(err, result) {
     if(err){
       console.log('error running query', err);
       res.status(500);

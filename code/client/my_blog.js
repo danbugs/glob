@@ -17,7 +17,7 @@ if(sessionStorage.getItem('username')){
             for(let i = 0; i < result.length; i++){
                 let post = $(`
                 <tr>
-                    <td>${result[i].title}</td>
+                    <td><a href="./post.html?postid=${result[i].postid}"'>${result[i].title}</a></td>
                     <td>${result[i].views}</td>
                     <td>
                         <button id='${result[i].postid}' class="btn btn-danger" onClick='deletePost(this)'>Delete</button>

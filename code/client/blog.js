@@ -21,7 +21,7 @@ fetch(server, {
             for(let i = 0; i < result.length; i++){
                 let post = $(`
                 <tr>
-                    <td>${result[i].title}</td>
+                    <td><a href="./post.html?postid=${result[i].postid}"'>${result[i].title}</a></td>
                     <td>${result[i].views}</td>
                 </tr>
                 `)
@@ -32,7 +32,7 @@ fetch(server, {
         $('#blog').html(`
         <div class="text-center">
             <h1>Nope! ッ</h1>
-            <p>There's nothing to see here ~</p>
+            <p>This user hasn't posted yet ~</p>
         </div>
         `);
     }

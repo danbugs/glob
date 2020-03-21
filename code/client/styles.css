@@ -6,6 +6,7 @@ nav{
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 100;
 }
 nav form{
     display: inline-block;
@@ -35,6 +36,9 @@ a{
 /* </trending_posts> */
 
 /* <footer> */
+main {
+    min-height: 75vh;
+}
 footer{
     margin-top: 1em;
     background-color: #f6f6f6;
@@ -63,3 +67,14 @@ button a:hover{
     font-weight: bold;
 }
 /* </misc> */
+
+/* <make_post> */
+
+textarea {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	width: 100%;
+}
+/* <make_post> */

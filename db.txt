@@ -1,13 +1,11 @@
 CREATE TABLE blogUser(
 username VARCHAR(50) NOT NULL,
 password VARCHAR(50) NOT NULL, 
-admin boolean,
 email VARCHAR(100) NOT NULL,
-bio VARCHAR(200),
 PRIMARY KEY (username)
 );
 
-INSERT INTO blogUser VALUES ('admin', 'admin', true, 'admin@admin.com', 'Admin');
+INSERT INTO blogUser VALUES ('admin', 'admin', 'admin@admin.com');
 
 CREATE TABLE blogPost(
 postID SERIAL NOT NULL,
@@ -25,5 +23,3 @@ postID SERIAL NOT NULL REFERENCES blogPost(postID) ON UPDATE CASCADE ON DELETE N
 username VARCHAR(50) NOT NULL REFERENCES blogUser(username) ON UPDATE CASCADE ON DELETE NO ACTION,
 PRIMARY KEY(commentID)
 );
-
-INSERT INTO blogPost(pcontent, title, username, views)  VALUES ('Perfect way to start my last term at UBC! My team and I developed a website that shows the requirements to take any Computer Science course in an easier way for students, all this in just 24hrs.', 'BCHacks 2020', 'dan', 0);

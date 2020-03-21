@@ -8,6 +8,7 @@ fetch(server, {
 })
 .then(response => response.json())
 .then(result => {
+    result.sort((a, b) => (a.views < b.views) ? 1 : -1);
     let colors = ['red', 'blue', 'green', 'teal', 'rosybrown', 'tan', 'plum', 'saddlebrown'];
     $(document).ready(() => {
         for(let i = 0; i < result.length; i++){
@@ -22,6 +23,5 @@ fetch(server, {
             $(post).css('color', colors[Math.floor(Math.random() * colors.length)])
         }
     })
-    console.log(result);
 })
 .catch((e) => console.log(e));

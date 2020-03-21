@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>glob</title>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon"/>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
     <script
@@ -35,16 +37,16 @@
                     <table class="table" id="users">
                         <legend>Users</legend>
                         <tr>
-                            <th>User name</th>
+                            <th>globber</th>
                             <th>Action</th>
                         </tr>
                     </table>
                 </div>
             </div>
             <div class="row">
-                <form id="query">
+                <form class="form-group" id="query">
                     <legend>Query:</legend>
-                    <textarea name="sql" rows="10" cols="100"></textarea>
+                    <textarea class="form-control" name="sql" rows="10" cols="100"></textarea>
                     <br>
                     <button type="Submit" class="btn btn-success">Query</button>
                 </form>
