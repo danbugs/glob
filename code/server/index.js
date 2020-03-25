@@ -5,6 +5,10 @@ const pg = require('pg');
 let conString = process.env.CON_STRING;
 let client = new pg.Client(conString);
 
+const app = express();
+app.use(cors());
+app.use(express.json());
+
 client.connect(function(err){
   if(err){
       console.log('could not connect to postgres', err);
@@ -16,10 +20,6 @@ client.connect(function(err){
     console.log('connection OK');
   }
 });
-
-const app = express();
-app.use(cors());
-app.use(express.json());
 
 app.get('/', (req, res) => {
     res.json({message: req.url});
@@ -241,6 +241,42 @@ app.post('/make_post', (req, res) => {
     res.send({
       message: "posted"
     });
+  });
+});
+
+app.post('/post/comment', (req, res) => {
+  const query = {
+    name: 'comment',
+    text: 'INSERT INTO blogComment (content, postID, username) VALUES ($1, $2, $3);',
+    values: [req.body.content, req.body.postID, req.body.username]
+  }
+  client.query(query, function(err, result) {
+    if(err){
+      console.log('error running query', err);
+      res.status(500);
+      res.send(err.message);
+    }
+    res.status(200);
+    res.send({
+      message: "comment"
+    });
+  });
+});
+
+app.post('/post/fetch_comments', (req, res) => {
+  const query = {
+    name: 'fetch_comment',
+    text: 'SELECT * FROM blogComment WHERE postID = $1',
+    values: [req.body.postid]
+  }
+  client.query(query, function(err, result) {
+    if(err){
+      console.log('error running query', err);
+      res.status(500);
+      res.send(err.message);
+    }
+    res.status(200);
+    res.send(result.rows);
   });
 });
 
